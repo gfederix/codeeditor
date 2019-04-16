@@ -1,6 +1,4 @@
-#ifndef CODEEDITOR_H
-#define CODEEDITOR_H
-
+#pragma once
 #include <QPlainTextEdit>
 #include <QObject>
 
@@ -25,7 +23,7 @@ public:
 protected:
     void resizeEvent(QResizeEvent *event) override;
 
-private slots:
+private Q_SLOTS:
     void updateLineNumberAreaWidth(int newBlockCount);
     void highlightCurrentLine();
     void updateLineNumberArea(const QRect &, int);
@@ -54,6 +52,3 @@ protected:
 private:
     CodeEditor *codeEditor;
 };
-
-
-#endif
