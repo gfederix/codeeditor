@@ -1,7 +1,7 @@
 /*
-  Code editor example from
-  https://doc.qt.io/qt-5/qtwidgets-widgets-codeeditor-example.html
-*/
+ * Code editor example from
+ * https://doc.qt.io/qt-5/qtwidgets-widgets-codeeditor-example.html
+ */
 
 #include <QtWidgets>
 
