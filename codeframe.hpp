@@ -1,9 +1,10 @@
 #pragma once
 #include <QObject>
 #include <QFrame>
+#include <QtCore/qglobal.h>
+#include "codeframe_p.hpp"
 
 // class QWidget;
-
 class CodeFrame : public QFrame
 {
   Q_OBJECT

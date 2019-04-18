@@ -55,5 +55,4 @@ print("x val = ", str(x))
   editor.show();
 
   return app.exec();
-
 }

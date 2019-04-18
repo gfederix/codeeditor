@@ -35,7 +35,8 @@ target_compile_features(codeeditor PUBLIC ${DEFAULT_FLAGS} )
 # https://doc.qt.io/qt-5/signalsandslots.html#using-qt-with-3rd-party-signals-and-slots
 target_compile_definitions(codeeditor PRIVATE QT_NO_KEYWORDS)
 
+add_subdirectory(src/codeframe)
 # Code Frame Test
-add_executable(codeframe codeframe.cpp codeframe.hpp)
-target_link_libraries(codeframe PRIVATE Qt5::Widgets)
-target_compile_features(codeframe PUBLIC ${DEFAULT_FLAGS} )
+# add_executable(codeframe codeframe.cpp codeframe.hpp)
+# target_link_libraries(codeframe PRIVATE Qt5::Widgets)
+# target_compile_features(codeframe PUBLIC ${DEFAULT_FLAGS} )

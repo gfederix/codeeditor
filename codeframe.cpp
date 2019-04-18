@@ -5,6 +5,7 @@
 #include <QtCore/qglobal.h>
 
 #include "codeframe.hpp"
+#include "codeframe_p.hpp"
 
 CodeFrame::CodeFrame(QWidget *parent): QFrame(parent)
 {
