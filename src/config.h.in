@@ -1,0 +1,2 @@
+#include <string.h>
+#define PY_CONFIG "@PY_CONFIG@"

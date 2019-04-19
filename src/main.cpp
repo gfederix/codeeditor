@@ -1,8 +1,11 @@
-#include <QtWidgets>
 #include <Python.h>
 #include <iostream>
-#include "codeeditor.hpp"
 #include <pybind11/embed.h>
+
+#include <QtWidgets>
+
+#include "codeframe/codeframe.hpp"
+#include "config.h"
 
 namespace py = pybind11;
 int param = 1;
@@ -20,38 +23,24 @@ PYBIND11_EMBEDDED_MODULE(fast_calc, m) {
 
 int main(int argc, char *argv[])
 {
-  FILE * fp;
-
-  wchar_t *program = Py_DecodeLocale(argv[0], NULL);
-
-  if (program == NULL) {
-    fprintf(stderr, "Fatal error: cannot decode argv[0]\n");
-    exit(1);
-  }
   // https://docs.python.org/3/extending/
-  // PyRun_SimpleString("from time import time,ctime\n"
-  //                    "print(\"Python3 interpreter test:\")\n"
-  //                    "print('Today is', ctime(time()))\n"
-  //                    "x=\"some value\";\n"
-  //                    "print(\"x=\", str(x))\n"
-  //                    );
 
-  /*
-   *   Qt Window
-   */
   py::scoped_interpreter guard{};
   // Evaluate in scope of main module
   py::object scope = py::module::import("__main__").attr("__dict__");
-  py::eval_file("codeeditor.py", scope);
+  py::eval_file(PY_CONFIG, scope);
   py::eval(R"(
 print("x val = ", str(x))
                )");
 
   std::cout << param << std::endl;
+  /*
+   *   Qt Window
+   */
   QApplication app(argc, argv);
 
-  CodeEditor editor;
-  editor.setWindowTitle(QObject::tr("Code Editor Example"));
+  CodeFrame editor;
+  editor.setWindowTitle(QObject::tr("Code Editor Tsts"));
   editor.show();
 
   return app.exec();
